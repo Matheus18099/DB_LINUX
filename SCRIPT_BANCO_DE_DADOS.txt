@@ -1,0 +1,113 @@
+create table paises (
+    id_pais integer primary key ,
+    nome_pais varchar(50) not null unique
+);
+
+create table distribuicao (
+    id_distribuicao integer primary key ,
+    nome_distribuicao varchar(50) not null unique,
+    tamanho varchar(50) not null,
+    lancamento integer not null
+);
+
+create table arquitetura (
+    id_arquitetura integer primary key ,
+    arquitetura varchar(50) not null unique
+);
+
+create table categoria (
+    id_categoria integer primary key ,
+    categoria varchar(50) not null unique
+);
+
+create table base (
+    id_base integer primary key ,
+    baseado_em varchar(50) not null unique
+);
+
+create table avaliacao (
+    id_avaliacao integer primary key ,
+    id_distribuicao integer not null unique,
+    nota_avaliacoes decimal(5,2) not null,
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao)
+);
+
+create table relacao_distribuicao_pais (
+    id_relacao_distribuicao_pais integer primary key ,
+    id_distribuicao integer not null,
+    id_pais integer not null,
+    unique (id_distribuicao, id_pais),
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao),
+    foreign key (id_pais) references paises(id_pais)
+);
+
+create table relacao_distribuicao_arquitetura (
+    id_relacao_distribuicao_arquitetura integer primary key ,
+    id_distribuicao integer not null,
+    id_arquitetura integer not null,
+    unique (id_distribuicao, id_arquitetura),
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao),
+    foreign key (id_arquitetura) references arquitetura(id_arquitetura)
+);
+
+create table relacao_distribuicao_categoria (
+    id_relacao_distribuicao_categoria integer primary key ,
+    id_distribuicao integer not null,
+    id_categoria integer not null,
+    unique (id_distribuicao, id_categoria),
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao),
+    foreign key (id_categoria) references categoria(id_categoria)
+);
+
+create table relacao_distribuicao_base (
+    id_relacao_distribuicao_base integer primary key ,
+    id_distribuicao integer not null,
+    id_base integer not null,
+    unique (id_distribuicao, id_base),
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao),
+    foreign key (id_base) references base(id_base)
+);
+
+create table historia (
+    id_historia integer primary key ,
+    id_distribuicao integer not null unique,
+    descricao text not null,
+    foreign key (id_distribuicao) references distribuicao(id_distribuicao)
+);
+
+create view view_detalhes_distribuicao as
+select 
+    d.id_distribuicao,
+    d.nome_distribuicao,
+    d.tamanho,
+    d.lancamento,
+    a.nota_avaliacoes,
+    group_concat(distinct p.nome_pais) as paises,
+    group_concat(distinct arq.arquitetura) as arquiteturas,
+    group_concat(distinct cat.categoria) as categorias,
+    group_concat(distinct b.baseado_em) as bases,
+    h.descricao as historia
+from 
+    distribuicao d
+left join 
+    avaliacao a on d.id_distribuicao = a.id_distribuicao
+left join 
+    relacao_distribuicao_pais rp on d.id_distribuicao = rp.id_distribuicao
+left join 
+    paises p on rp.id_pais = p.id_pais
+left join 
+    relacao_distribuicao_arquitetura ra on d.id_distribuicao = ra.id_distribuicao
+left join 
+    arquitetura arq on ra.id_arquitetura = arq.id_arquitetura
+left join 
+    relacao_distribuicao_categoria rc on d.id_distribuicao = rc.id_distribuicao
+left join 
+    categoria cat on rc.id_categoria = cat.id_categoria
+left join 
+    relacao_distribuicao_base rb on d.id_distribuicao = rb.id_distribuicao
+left join 
+    base b on rb.id_base = b.id_base
+left join 
+    historia h on d.id_distribuicao = h.id_distribuicao
+group by 
+    d.id_distribuicao, d.nome_distribuicao, d.tamanho, d.lancamento, a.nota_avaliacoes, h.descricao;
