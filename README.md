@@ -90,5 +90,5 @@ Certifique-se de que o servidor MySQL esteja rodando corretamente e que a config
 
 Clique na imagem abaixo para assistir ao vídeo no YouTube:
 
-[![Assistir ao vídeo](https://img.youtube.com/vi/Am3Ckwrkt7w/0.jpg)](https://www.youtube.com/embed/Am3Ckwrkt7w?si=5y3TqnPfjOs6LcpJ)
+(https://www.youtube.com/embed/Am3Ckwrkt7w?si=5y3TqnPfjOs6LcpJ)
 
