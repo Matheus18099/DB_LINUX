@@ -1,5 +1,16 @@
 # Projeto Banco de Dados LINUX_DB
 
+## Requisitos
+
+Antes de começar, certifique-se de que os seguintes itens estão instalados no ambiente de desenvolvimento:
+
+- **Node.js**: Necessário para executar os módulos `app-banco-de-dados` e `server-banco-de-dados`.  
+  - [Baixar Node.js](https://nodejs.org)  
+- **phpMyAdmin**: Utilizado para gerenciar e executar o script de criação do banco de dados.  
+  - Consulte a documentação oficial para instalação no seu sistema.  
+
+---
+
 ## Descrição
 
 Este projeto é composto por dois módulos principais: 
@@ -74,4 +85,12 @@ const conexao = mysql.createConnection({
 ## Observação
 
 Certifique-se de que o servidor MySQL esteja rodando corretamente e que a configuração do banco de dados no módulo server-banco-de-dados aponte para a base de dados linux_db criada no phpMyAdmin.
+
+
+## Tutorial de Instalação
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Am3Ckwrkt7w?si=5y3TqnPfjOs6LcpJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 
