@@ -111,3 +111,113 @@ left join
     historia h on d.id_distribuicao = h.id_distribuicao
 group by 
     d.id_distribuicao, d.nome_distribuicao, d.tamanho, d.lancamento, a.nota_avaliacoes, h.descricao;
+
+
+-- Inserindo os países
+insert into paises (id_pais, nome_pais) values (1, 'Grécia');
+insert into paises (id_pais, nome_pais) values (2, 'Estados Unidos');
+insert into paises (id_pais, nome_pais) values (3, 'Irlanda');
+
+-- Inserindo distribuições
+insert into distribuicao (id_distribuicao, nome_distribuicao, tamanho, lancamento) 
+values (1, 'MX Linux', '1700-2600 MB', 2017);
+insert into distribuicao (id_distribuicao, nome_distribuicao, tamanho, lancamento) 
+values (2, 'Ubuntu', '2 GB', 2004);
+insert into distribuicao (id_distribuicao, nome_distribuicao, tamanho, lancamento) 
+values (3, 'Kali Linux', '3 GB', 2013);
+insert into distribuicao (id_distribuicao, nome_distribuicao, tamanho, lancamento) 
+values (4, 'EndeavourOS', '1.5 GB', 2019);
+insert into distribuicao (id_distribuicao, nome_distribuicao, tamanho, lancamento) 
+values (5, 'Debian', '4 GB', 1993);
+
+-- Inserindo bases
+insert into base (id_base, baseado_em) values (1, 'Debian (Stable)');
+insert into base (id_base, baseado_em) values (2, 'antiX');
+insert into base (id_base, baseado_em) values (3, 'Ubuntu (LTS)');
+
+-- Inserindo arquiteturas
+insert into arquitetura (id_arquitetura, arquitetura) values (1, 'armhf');
+insert into arquitetura (id_arquitetura, arquitetura) values (2, 'i686');
+insert into arquitetura (id_arquitetura, arquitetura) values (3, 'x86_64');
+
+
+
+
+-- Inserindo categorias
+insert into categoria (id_categoria, categoria) values (1, 'Desktop');
+insert into categoria (id_categoria, categoria) values (2, 'From RAM');
+insert into categoria (id_categoria, categoria) values (3, 'Live Medium');
+insert into categoria (id_categoria, categoria) values (4, 'Raspberry Pi');
+insert into categoria (id_categoria, categoria) values (5, 'Beginners');
+
+-- Inserindo avaliações
+insert into avaliacao (id_distribuicao, nota_avaliacoes) 
+values (1, 8.04);
+insert into avaliacao (id_distribuicao, nota_avaliacoes) 
+values (2, 7.67);
+insert into avaliacao (id_distribuicao, nota_avaliacoes) 
+values (3, 9.07);
+insert into avaliacao (id_distribuicao, nota_avaliacoes) 
+values (4, 8.48);
+insert into avaliacao (id_distribuicao, nota_avaliacoes) 
+values (5, 8.92);
+
+-- Inserindo relações de distribuição com países
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (1, 1);
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (1, 2);
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (2, 3);
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (3, 2);
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (4, 2);
+insert into relacao_distribuicao_pais (id_distribuicao, id_pais) values (5, 1);
+
+
+-- Inserindo relações de distribuição com arquiteturas
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (1, 1); 
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (1, 2);
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (1, 3);
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (2, 2);
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (2, 3);
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (3, 3); 
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (4, 2); 
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (5, 1); 
+insert into relacao_distribuicao_arquitetura (id_distribuicao, id_arquitetura) values (5, 3);
+
+-- Inserindo relações de distribuição com categorias
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (1, 1); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (1, 2); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (1, 3); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (1, 4); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (2, 1); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (2, 3); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (2, 5); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (3, 3); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (3, 5); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (4, 1); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (5, 1); 
+insert into relacao_distribuicao_categoria (id_distribuicao, id_categoria) values (5, 3); 
+
+
+-- Inserindo relações de distribuição com bases
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (1, 1); 
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (1, 2); 
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (2, 1); 
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (2, 3); 
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (3, 1); 
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (4, 1);
+insert into relacao_distribuicao_base (id_distribuicao, id_base) values (5, 1);
+
+
+-- Inserindo histórias das distribuições
+insert into historia (id_historia, id_distribuicao, descricao) 
+values (1, 1, 'O MX Linux é uma distribuição baseada no Debian conhecida por sua leveza, eficiência e facilidade de uso. Ele combina as bases sólidas do Debian com ferramentas exclusivas desenvolvidas pela comunidade, oferecendo uma experiência amigável tanto para iniciantes quanto para usuários avançados.<br>Seu ambiente gráfico padrão é o **XFCE**, mas versões com **KDE** e **Fluxbox** também estão disponíveis, garantindo ótimo desempenho em máquinas mais antigas e em sistemas modernos. O MX Linux se destaca por ferramentas próprias, como o **MX Tools**, um conjunto de utilitários que simplificam tarefas administrativas, como gerenciamento de pacotes, configuração do sistema e criação de snapshots.<br>Ele é amplamente utilizado por aqueles que procuram um sistema rápido, estável e altamente configurável, sendo ideal para uso diário ou como plataforma de trabalho em computadores com recursos limitados. Além disso, sua comunidade ativa e documentação acessível tornam o MX Linux uma escolha confiável e práticapara diversos perfis de usuários.');
+insert into historia (id_historia, id_distribuicao, descricao) 
+values (2, 2, 'O Ubuntu é uma das distribuições Linux mais conhecidas e amplamente utilizadas no mundo, baseada no Debian e projetada para oferecer acessibilidade e usabilidade tanto para iniciantes quanto para profissionais. Ele é reconhecido por sua instalação fácil, interface moderna e suporte extenso da comunidade.<br>Seu ambiente gráfico padrão é o GNOME, adaptado para uma experiência intuitiva e produtiva, mas também há sabores oficiais com outros ambientes, como Kubuntu (KDE Plasma), Xubuntu (XFCE) e Lubuntu (LXQt), atendendo a diferentes preferências e necessidades de desempenho. O Ubuntu conta com o Snap, um sistema de pacotes que facilita a instalação e atualização de aplicativos, além de manter o suporte aos pacotes tradicionais do Debian.<br>Usado amplamente em desktops, servidores e ambientes na nuvem, o Ubuntu é valorizado por sua estabilidade, segurança e ciclos regulares de lançamento. Ele é ideal tanto para quem está começando no mundo Linux quanto para profissionais que buscam uma solução confiável para desenvolvimento, administração de sistemas e computação em geral.');
+insert into historia (id_historia, id_distribuicao, descricao) 
+values (3, 3, 'O Kali Linux é uma distribuição baseada no Debian, amplamente utilizada por profissionais de segurança da informação e entusiastas de pentesting. Ele foi projetado especificamente para testes de penetração, auditorias de segurança e análise forense digital. O Kali inclui uma vasta coleção de ferramentas pré-instaladas, como o Nmap (scanner de rede), Metasploit (framework de exploração), Wireshark (analisador de tráfego de rede), John the Ripper (quebra de senhas) e o Aircrack-ng (teste de segurança em redes Wi-Fi), entre outros.<br>Essas ferramentas são usadas para identificar vulnerabilidades, testar a segurança de sistemas e redes e reforçar a proteção contra ataques cibernéticos. O Kali também é popular em ambientes de ensino, para aprendizado prático de técnicas de segurança e hacking ético.');
+
+insert into historia (id_historia, id_distribuicao, descricao) 
+values (4, 4, 'O EndeavourOS é uma distribuição Linux baseada no Arch Linux, projetada para ser acessível e amigável, sem perder a flexibilidade e o poder do Arch. Ele combina a instalação simplificada com o Arch-Installer e uma ampla gama de ambientes gráficos disponíveis, como XFCE, KDE Plasma, GNOME, e outros, permitindo que o usuário personalize sua experiência desde o início.<br>Uma das principais características do EndeavourOS é seu foco na simplicidade e na comunidade. Ele oferece um sistema minimalista por padrão, permitindo que os usuários construam seu ambiente com apenas o que precisam, ao mesmo tempo em que mantém acesso total ao repositório oficial do Arch e ao AUR (Arch User Repository), conhecido por sua vasta seleção de pacotes.<br>Com documentação clara e uma comunidade acolhedora, o EndeavourOS é ideal tanto para aqueles que desejam explorar o Arch Linux pela primeira vez quanto para usuários avançados que procuram um sistema flexível e atualizado.');
+
+insert into historia (id_historia, id_distribuicao, descricao) 
+values (5, 5, 'O Debian é uma das distribuições Linux mais conhecidas e respeitadas, reconhecida por sua estabilidade, segurança e flexibilidade. Baseado em software livre e de código aberto, o Debian é usado tanto por servidores quanto por desktops, sendo ideal para quem busca um sistema confiável e personalizável.<br>Ele vem com uma ampla gama de pacotes pré-compilados, incluindo navegadores, editores de texto e ferramentas de desenvolvimento, além de suporte para diferentes ambientes gráficos, como GNOME, KDE e XFCE. Por ser a base de outras distribuições populares, como Ubuntu e Kali Linux, o Debian é altamente adaptável para diferentes finalidades, desde tarefas do dia a dia até administração de servidores e desenvolvimento de software.');
+
