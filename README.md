@@ -19,6 +19,8 @@ Além disso, há um arquivo chamado **`SCRIPT_BANCO_DE_DADOS`**, que contém o s
 2. **Instalar as dependências**
    - Navegue para cada uma das pastas (`app-banco-de-dados` e `server-banco-de-dados`).
    - Abra o terminal em cada pasta e execute o seguinte comando:
+  
+     
      ```
      npm install
      ```
@@ -42,6 +44,7 @@ No módulo `server-banco-de-dados`, configure a conexão com o banco de dados aj
 - **`password`**: A senha do usuário do banco de dados. Deixe vazio `""` se não houver senha configurada.  
 - **`database`**: O nome do banco de dados utilizado. No caso deste projeto, é `"linux_db"`.
 
+
 ```
 const conexao = mysql.createConnection({
   host: "localhost",
@@ -49,7 +52,6 @@ const conexao = mysql.createConnection({
   password: "",
   database: "linux_db",
 });
-
 
 ```
 
@@ -61,6 +63,8 @@ const conexao = mysql.createConnection({
 - Verifique as credenciais do banco de dados no módulo `server-banco-de-dados`.
 - Após configurar, inicie os módulos:
    - Para a Interface e Server execute :
+
+  
      ```
      npm run dev
      ```
@@ -71,6 +75,3 @@ const conexao = mysql.createConnection({
 
 Certifique-se de que o servidor MySQL esteja rodando corretamente e que a configuração do banco de dados no módulo server-banco-de-dados aponte para a base de dados linux_db criada no phpMyAdmin.
 
-
-
-"""
