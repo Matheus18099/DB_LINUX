@@ -1,4 +1,4 @@
-# Projeto Banco de Dados
+# Projeto Banco de Dados LINUX_DB
 
 ## Descrição
 
@@ -31,17 +31,46 @@ Além disso, há um arquivo chamado **`SCRIPT_BANCO_DE_DADOS`**, que contém o s
    - No phpMyAdmin, crie um banco de dados chamado **`linux_db`**.
    - Na interface SQL do phpMyAdmin, cole o conteúdo do arquivo copiado e execute o script.
 
+## Configuração da Conexão com o Banco de Dados
+
+No módulo `server-banco-de-dados`, configure a conexão com o banco de dados ajustando o seguinte trecho de código no arquivo responsável pela conexão (server.js):
+
+### Parâmetros da Conexão
+
+- **`host`**: Define o endereço do servidor onde o banco de dados está hospedado. Para ambientes locais, utilize `"localhost"`.  
+- **`user`**: Nome do usuário com permissão para acessar o banco de dados. Geralmente, para desenvolvimento, é `"root"`.  
+- **`password`**: A senha do usuário do banco de dados. Deixe vazio `""` se não houver senha configurada.  
+- **`database`**: O nome do banco de dados utilizado. No caso deste projeto, é `"linux_db"`.
+
+```
+const conexao = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "linux_db",
+});
+
+
+```
+
 ---
 
 ## Configuração do projeto
 
 - Certifique-se de que o banco de dados `linux_db` está configurado corretamente.
 - Verifique as credenciais do banco de dados no módulo `server-banco-de-dados`.
-- Após configurar, inicie os módulos conforme necessário (ex.: `npm start`).
+- Após configurar, inicie os módulos:
+   - Para a Interface e Server execute :
+     ```
+     npm run dev
+     ```
 
 ---
 
 ## Observação
 
-Certifique-se de que o servidor MySQL esteja em execução antes de iniciar o projeto.
+Certifique-se de que o servidor MySQL esteja rodando corretamente e que a configuração do banco de dados no módulo server-banco-de-dados aponte para a base de dados linux_db criada no phpMyAdmin.
+
+
+
 """
