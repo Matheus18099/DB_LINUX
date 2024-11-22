@@ -86,11 +86,9 @@ const conexao = mysql.createConnection({
 
 Certifique-se de que o servidor MySQL esteja rodando corretamente e que a configuração do banco de dados no módulo server-banco-de-dados aponte para a base de dados linux_db criada no phpMyAdmin.
 
+## Vídeo Demonstrativo
 
-## Tutorial de Instalação
+Clique na imagem abaixo para assistir ao vídeo no YouTube:
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Am3Ckwrkt7w?si=5y3TqnPfjOs6LcpJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
+[![Assistir ao vídeo](https://img.youtube.com/vi/Am3Ckwrkt7w/0.jpg)](https://www.youtube.com/embed/Am3Ckwrkt7w?si=5y3TqnPfjOs6LcpJ)
 
