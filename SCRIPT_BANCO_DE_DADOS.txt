@@ -1,39 +1,39 @@
 create table paises (
-    id_pais integer primary key ,
+    id_pais integer primary key AUTO_INCREMENT,
     nome_pais varchar(50) not null unique
 );
 
 create table distribuicao (
-    id_distribuicao integer primary key ,
+    id_distribuicao integer primary key AUTO_INCREMENT ,
     nome_distribuicao varchar(50) not null unique,
     tamanho varchar(50) not null,
     lancamento integer not null
 );
 
 create table arquitetura (
-    id_arquitetura integer primary key ,
+    id_arquitetura integer primary key AUTO_INCREMENT,
     arquitetura varchar(50) not null unique
 );
 
 create table categoria (
-    id_categoria integer primary key ,
+    id_categoria integer primary key AUTO_INCREMENT,
     categoria varchar(50) not null unique
 );
 
 create table base (
-    id_base integer primary key ,
+    id_base integer primary key AUTO_INCREMENT,
     baseado_em varchar(50) not null unique
 );
 
 create table avaliacao (
-    id_avaliacao integer primary key ,
+    id_avaliacao integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null unique,
     nota_avaliacoes decimal(5,2) not null,
     foreign key (id_distribuicao) references distribuicao(id_distribuicao)
 );
 
 create table relacao_distribuicao_pais (
-    id_relacao_distribuicao_pais integer primary key ,
+    id_relacao_distribuicao_pais integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null,
     id_pais integer not null,
     unique (id_distribuicao, id_pais),
@@ -42,7 +42,7 @@ create table relacao_distribuicao_pais (
 );
 
 create table relacao_distribuicao_arquitetura (
-    id_relacao_distribuicao_arquitetura integer primary key ,
+    id_relacao_distribuicao_arquitetura integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null,
     id_arquitetura integer not null,
     unique (id_distribuicao, id_arquitetura),
@@ -51,7 +51,7 @@ create table relacao_distribuicao_arquitetura (
 );
 
 create table relacao_distribuicao_categoria (
-    id_relacao_distribuicao_categoria integer primary key ,
+    id_relacao_distribuicao_categoria integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null,
     id_categoria integer not null,
     unique (id_distribuicao, id_categoria),
@@ -60,7 +60,7 @@ create table relacao_distribuicao_categoria (
 );
 
 create table relacao_distribuicao_base (
-    id_relacao_distribuicao_base integer primary key ,
+    id_relacao_distribuicao_base integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null,
     id_base integer not null,
     unique (id_distribuicao, id_base),
@@ -69,7 +69,7 @@ create table relacao_distribuicao_base (
 );
 
 create table historia (
-    id_historia integer primary key ,
+    id_historia integer primary key AUTO_INCREMENT,
     id_distribuicao integer not null unique,
     descricao text not null,
     foreign key (id_distribuicao) references distribuicao(id_distribuicao)
