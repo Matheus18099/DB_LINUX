@@ -81,6 +81,14 @@ const conexao = mysql.createConnection({
      ```
 
 ---
+## Arquitetura da aplicação
+
+
+
+![image](https://github.com/user-attachments/assets/c5918f8a-4fa9-438a-994f-feaec53dc732)
+
+
+
 
 ## Observação
 
