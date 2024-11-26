@@ -92,7 +92,8 @@ const conexao = mysql.createConnection({
 
 ## Modelo Lógico
 
-![modelo_logico odg](https://github.com/user-attachments/assets/18eacea0-beed-4650-b4ea-b58bf5e022ba)
+
+<img width="300" alt="Captura de tela 2024-11-26 005141" src="https://github.com/user-attachments/assets/224be91c-756e-41af-af35-c27fdc60a909">
 
 
 ## Observação
