@@ -88,11 +88,12 @@ const conexao = mysql.createConnection({
 ![image](https://github.com/user-attachments/assets/c5918f8a-4fa9-438a-994f-feaec53dc732)
 
 ## Modelo conceitual
-![Modelo_conceitual drawio](https://github.com/user-attachments/assets/92daf2ea-d579-43fb-a077-4ac2c1ba4a83)
+
 
 ## Modelo Lógico
 
-![modelo_logico odg](https://github.com/user-attachments/assets/18eacea0-beed-4650-b4ea-b58bf5e022ba)
+<img width="479" alt="Captura de tela 2024-11-26 005141" src="https://github.com/user-attachments/assets/1edd988e-8278-4d1d-aade-03063c23e7fd">
+
 
 
 ## Observação
